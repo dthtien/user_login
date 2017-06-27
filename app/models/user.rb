@@ -13,6 +13,10 @@ class User < ApplicationRecord
     first_name + ' ' + last_name
   end
 
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver_now
+  end
+
   private 
     def downcase_email
       self.email = email.downcase 

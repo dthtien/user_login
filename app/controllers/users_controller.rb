@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      @user.send_welcome_email
+      log_in(@user)
       flash[:notice] = "Welcome"
       redirect_to root_path
     else
