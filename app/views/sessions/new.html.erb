@@ -1,0 +1,10 @@
+<div class="center">
+  <h1>LogIn</h1>
+  <%= simple_form_for :session do |f| %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+
+    <%= f.submit "Log In", class: "center, btn" %>
+     <p class="center">Don't have any account <%= link_to "Sign un", sign_up_path %></p>
+  <% end %>
+</div>

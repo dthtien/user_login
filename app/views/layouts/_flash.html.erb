@@ -1,0 +1,3 @@
+<% flash.each do |key, msg| %>
+  <%= javascript_tag "Materialize.toast('#{msg}', 4000, '#{key}')" %>
+<% end %>
