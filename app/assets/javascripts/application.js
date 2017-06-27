@@ -13,4 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require materialize-sprockets
+//= require materialize-form
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  $(".button-collapse").sideNav();
+
+  $('select').material_select();
+
+  window.materializeForm.init()
+})

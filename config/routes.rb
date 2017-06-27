@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root "pages#home"
+
+  get 'sign_up' => "users#new"
+  resources :users, only: :create
+
+  get 'log_in' => "sessions#new"
+  post 'log_in' => "sessions#create"
+  delete 'log_out' => "sessions#destroy"
 end

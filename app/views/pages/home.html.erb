@@ -1,0 +1,9 @@
+<div class="center">
+  <h2>Welcome</h2>
+  <% if logged_in? %>
+    <h3><%= current_user.full_name %></h3>
+  <% else %>
+    <%= link_to "Log In", log_in_path, class: "btn" %>
+    <%= link_to "Sign up", sign_up_path, class: "btn" %>
+  <% end %>
+</div>

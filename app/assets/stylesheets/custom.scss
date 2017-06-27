@@ -1,0 +1,18 @@
+.notice{
+  @extend .green;
+  @extend .darken-2;
+}
+
+
+.alert {
+  @extend .red;
+  @extend .accent-2;
+}
+
+.primary {
+  background-color: $primary-color;
+}
+
+.primary-text {
+  color: $primary-color;
+}
