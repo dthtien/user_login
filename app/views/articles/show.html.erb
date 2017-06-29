@@ -1,0 +1,7 @@
+<div id="show-article">
+  <blockquote>
+    <h4><%= @article.title %></h4>
+    <%= render "shared/owner_link", record: @article %>
+    <%= simple_format @article.body %>
+  </blockquote>
+</div>

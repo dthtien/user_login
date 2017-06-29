@@ -1,0 +1,10 @@
+<% if logged_in? && policy(record).update? %>
+  <div id="owner-link" class="right">
+    <%= link_to [:edit, record], class: 'tooltipped', data: {delay: 10, tooltip: "Edit"}  do %>
+      <i class="material-icons">edit</i>
+    <% end %>
+     <%= link_to  record, class: 'red-text tooltipped', data: {delay: 10, tooltip: "Delete ", position: "right", confirm: "Are you sure?"}, method: :delete  do %>
+      <i class="material-icons">delete</i>
+    <% end %>
+</div>
+<% end %>

@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get 'log_in' => "sessions#new"
   post 'log_in' => "sessions#create"
   delete 'log_out' => "sessions#destroy"
+
+  resources :articles
 end

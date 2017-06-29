@@ -90,6 +90,8 @@ GEM
       mini_portile2 (~> 2.2.0)
     pg (0.21.0)
     puma (3.9.1)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -176,6 +178,7 @@ DEPENDENCIES
   materialize-sass
   pg (~> 0.18)
   puma (~> 3.0)
+  pundit
   rails (~> 5.0.4)
   sass-rails (~> 5.0)
   simple_form

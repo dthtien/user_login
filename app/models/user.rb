@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  has_many :articles, dependent: :destroy
+
   validates :last_name, :first_name, presence: true, length: {maximum: 50}
   validates :email, presence: true, 
     format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i},
@@ -15,6 +17,10 @@ class User < ApplicationRecord
 
   def send_welcome_email
     UserMailer.welcome_email(self).deliver_now
+  end
+
+  def author?(record)
+    record.user == self
   end
 
   private 
