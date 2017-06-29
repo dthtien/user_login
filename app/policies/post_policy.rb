@@ -1,4 +1,4 @@
-class ArticlePolicy < ApplicationPolicy
+class PostPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope

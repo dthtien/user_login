@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   post 'log_in' => "sessions#create"
   delete 'log_out' => "sessions#destroy"
 
-  resources :articles
+  resources :posts, shallow: true do 
+    resources :comments, except: [:index, :show, :new]
+  end
 end

@@ -1,0 +1,8 @@
+<div class="post">
+  <div class="card">
+    <div class="card-content">
+      <%= render 'shared/owner_link', record: post %>
+      <%= simple_format post.content, class: 'post-content' %>
+    </div>
+  </div>
+</div>
