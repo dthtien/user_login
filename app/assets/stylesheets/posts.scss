@@ -1,5 +1,21 @@
-.post{
-  p.post-content{
-    font-size: 18px;
+p.post-content{
+  font-size: 20px;
+}
+
+.user-create{
+  padding-top: 10px;
+  margin-bottom: -20px;
+  .show-image-user{
+    @extend .center;
+    padding-right: 0px !important;
+    img.user-img{
+      height: 50px;
+      width: 50px;
+    }
   }
 }
+ .post{
+  h5{
+    margin-left: 2px;
+  }
+ }

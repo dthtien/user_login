@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def show
+    @comment = Comment.new
   end
 
   def new
@@ -11,6 +12,10 @@ class PostsController < ApplicationController
 
   def edit
     authorize @post
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -41,14 +46,14 @@ class PostsController < ApplicationController
     authorize @post
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Post was successfully destroyed.' }
       format.js
     end
   end
 
   private
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.includes(:comments).includes(:user).find(params[:id])
     end
 
     def post_params

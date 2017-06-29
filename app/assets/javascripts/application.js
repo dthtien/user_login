@@ -22,5 +22,7 @@ $(document).on('turbolinks:load', function() {
 
   $('select').material_select();
 
+  $('.modal').modal();
+
   window.materializeForm.init()
 })

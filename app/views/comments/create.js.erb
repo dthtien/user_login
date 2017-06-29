@@ -1,0 +1,3 @@
+$('form#new_comment')[0].reset();
+$('p.chip').html("<%= pluralize @post.count_comments, 'comment' %>")
+$('#comment-list').prepend("<%= j render @comment %>")

@@ -1,0 +1,9 @@
+<div class="comment">
+  <div class="card">
+    <%= render "shared/user_create", record: comment %>
+    <div class="card-content">
+      <%= render 'shared/owner_link', record: comment %>
+      <%= simple_format comment.content, class: 'comment-content' %>
+    </div>
+  </div>
+</div>

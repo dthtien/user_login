@@ -1,0 +1,13 @@
+<div id="edit-post-modal" class="modal">
+  <div class="modal-content">
+    <h4>Edit post</h4>
+
+    <%= simple_form_for @post do |f| %>
+      <%= f.input :content %>
+      <%= f.button :submit, "Save" %>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>
