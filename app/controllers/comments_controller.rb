@@ -1,28 +1,32 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_article, only: :create
+  before_action :set_post, only: :create
   before_action :set_comment, only: [:edit, :update, :destroy]
 
-  def edit
-  end
 
   def create
-    @comment = @article.comments.build(comment_params)
-
+    @comment = @post.comments.build(comment_params)
+    @comment.user = current_user
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @post, notice: 'Comment was successfully created.' }
         format.js
       else
-        format.html { render :new }
+        ssds
+        format.html { redirect_to @post, alert: 'Comment was not created.' }
       end
     end
   end
 
+  def edit
+    authorize @comment
+  end
+
   def update
+    authorize @comment
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to @comment.post, notice: 'Comment was successfully updated.' }
         format.js
       else
         format.html { render :edit }
@@ -31,6 +35,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    authorize @comment
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
@@ -39,8 +44,8 @@ class CommentsController < ApplicationController
   end
 
   private
-    def set_article
-      @article = Post.find(params[:post_id])
+    def set_post
+      @post = Post.find(params[:post_id])
     end
   
     def set_comment

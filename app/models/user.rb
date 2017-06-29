@@ -24,6 +24,9 @@ class User < ApplicationRecord
     record.user == self
   end
 
+  def image_url
+    "https://yt3.ggpht.com/-E2JOWZf82_c/AAAAAAAAAAI/AAAAAAAAAAA/5TIL33FTKF0/s900-c-k-no-mo-rj-c0xffffff/photo.jpg"
+  end
   private 
     def downcase_email
       self.email = email.downcase 

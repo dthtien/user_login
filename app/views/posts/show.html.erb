@@ -1,7 +1,28 @@
 <div id="show-post">
-  <%= render @post %>
+  <div class="card">
+    <div class="card-content">
+        <%= render 'shared/owner_link', record: @post %>
+        <%= simple_format @post.content, class: 'post-content' %>
+    </div>
+    <div class="card-action">
+      <p class="chip"><%= pluralize @post.count_comments, 'comment' %></p>
+    </div>
+    <hr>
+    <div id="comment-form">
+      <div class="container">
+        <h5>Create a comment</h5>
+        <%= render "comments/form" %>
+      </div>
+    </div>
+  </div>
 </div>
-<div id="comment-form"></div>
-<div id="comment-list">
-  
-</div>
+
+
+<% if @post.comments.present? %>
+  <h5>Comments</h5>
+  <div id="comment-list">
+    <%= render @post.comments %>
+  </div>
+<% else %>
+  <p>No comments yet</p>
+<% end %>

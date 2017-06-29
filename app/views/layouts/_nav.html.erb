@@ -4,6 +4,7 @@
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if logged_in? %>
+        <li><%= current_user.full_name %></li>
         <li><%= link_to "Log Out", log_out_path, method: "delete" %></li>
       <% else %>
         <li><%= link_to "Log In", log_in_path %></li>
@@ -12,6 +13,7 @@
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <% if logged_in? %>
+        <li><%=link_to current_user.full_name, "#" %></li>
         <li><%= link_to "Log Out", log_out_path, method: "delete" %></li>
       <% else %> 
         <li><%= link_to "Log In", log_in_path %></li>
