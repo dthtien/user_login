@@ -1,0 +1,8 @@
+editPostModal = $('#edit-post-modal');
+if ( editPostModal.length > 1 ) {
+  editPostModal.remove();
+}
+$('body').append("<%= j render('modal_form') %>");
+editPostModal = $('#edit-post-modal')
+editPostModal.modal()
+editPostModal.modal('open')

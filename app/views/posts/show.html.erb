@@ -1,5 +1,6 @@
 <div id="show-post">
   <div class="card">
+    <%= render 'shared/user_create', record: @post %>
     <div class="card-content">
         <%= render 'shared/owner_link', record: @post %>
         <%= simple_format @post.content, class: 'post-content' %>
@@ -17,12 +18,11 @@
   </div>
 </div>
 
-
-<% if @post.comments.present? %>
-  <h5>Comments</h5>
-  <div id="comment-list">
-    <%= render @post.comments %>
-  </div>
-<% else %>
-  <p>No comments yet</p>
-<% end %>
+<h5>Comments</h5>
+<div id="comment-list">
+  <% if @post.comments.present? %>
+      <%= render @post.comments %>
+  <% else %>
+    <p>No comments yet</p>
+  <% end %>
+</div>

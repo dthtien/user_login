@@ -1,6 +1,6 @@
 <div class="center">
   <% if logged_in? %>
-    <%= simple_form_for @post do |f| %>
+    <%= simple_form_for @post, remote: true do |f| %>
       <div class="row">
         <div class="col s12 m11">
           <%= f.input_field :content, class: "materialize-textarea text optional", placeholder: "Tell me about your day"%>

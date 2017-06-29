@@ -2,7 +2,16 @@
   <div class="card">
     <%= render 'shared/user_create', record: post %>
     <div class="card-content">
-        <%= render 'shared/owner_link', record: post %>
+      <% if logged_in? && policy(post).update? %>
+        <div id="owner-link" class="right">
+          <%= link_to [:edit, post], remote: true, class: 'tooltipped', data: {delay: 10, tooltip: "Edit"}  do %>
+            <i class="material-icons">edit</i>
+          <% end %>
+           <%= link_to  post, class: 'red-text tooltipped', data: {delay: 10, tooltip: "Delete ", position: "right", confirm: "Are you sure?"}, method: :delete  do %>
+            <i class="material-icons">delete</i>
+          <% end %>
+        </div>
+      <% end %>
         <%= simple_format post.content, class: 'post-content' %>
         <%= link_to pluralize(post.count_comments, "comment"), post, class: "chip"%>
     </div>
@@ -11,3 +20,5 @@
     </div>
   </div>
 </div>
+
+

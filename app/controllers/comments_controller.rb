@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
         format.html { redirect_to @post, notice: 'Comment was successfully created.' }
         format.js
       else
-        ssds
         format.html { redirect_to @post, alert: 'Comment was not created.' }
       end
     end
