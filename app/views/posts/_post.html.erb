@@ -14,6 +14,7 @@
       <% end %>
         <%= simple_format post.content, class: 'post-content' %>
         <%= link_to pluralize(post.count_comments, "comment"), post, class: "chip"%>
+        <%= link_to pluralize(post.count_images, "image"), post, class: "chip"%>
     </div>
     <div class="card-action">
       <%= link_to "See more", post %>

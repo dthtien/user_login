@@ -1,6 +1,12 @@
 <div class="center">
   <% if logged_in? %>
-    <p class="red-text">This form post</p>
+    <div class="fixed-action-btn">
+      <%= link_to new_post_path, remote: true,
+        class: "btn-floating btn-large blue pulse tooltipped", 
+        data: {tooltip: "Create post", position: "left"} do %>
+        <i class="material-icons">add</i>
+      <% end %>
+    </div>
   <% else %>
   <h2>Welcome</h2>
     <%= link_to "Log In", log_in_path, class: "btn" %>

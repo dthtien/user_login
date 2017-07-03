@@ -10,6 +10,10 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.images.build
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
 

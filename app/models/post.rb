@@ -12,4 +12,8 @@ class Post < ApplicationRecord
   def count_comments
     comments.count
   end
+
+  def count_images
+    images.count
+  end
 end
