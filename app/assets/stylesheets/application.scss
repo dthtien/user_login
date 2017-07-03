@@ -10,3 +10,22 @@ main{
   @extend .container;
   margin-top: 20px;
 }
+
+.spinner {
+  position: fixed;
+  opacity: 0.9;
+  left: 0;
+  top: 56px;
+  width: 100%;
+  height: 100%;
+  z-index: 996;
+  background-color: $primary-color;
+
+  .preloader-wrapper {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    margin-top: -32px;
+    margin-left: -32px;
+  }
+}

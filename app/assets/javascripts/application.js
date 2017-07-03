@@ -26,4 +26,12 @@ $(document).on('turbolinks:load', function() {
   $('.modal').modal();
 
   window.materializeForm.init()
-})
+});
+
+$(document).on("turbolinks:click", function(){
+  $(".spinner").show();
+});
+
+$(document).on("turbolinks:load", function(){
+  $(".spinner").fadeOut(50);
+});

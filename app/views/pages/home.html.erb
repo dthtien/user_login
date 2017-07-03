@@ -13,6 +13,9 @@
     <%= link_to "Sign up", sign_up_path, class: "btn" %>
   <% end %>
 </div>
-<div id="list-article">
-  <%= render @posts %>
+<div id="list-post">
+  <%= render @posts %> 
+</div>
+<div class="paginator">
+  <%= paginate @posts, remote: true %>
 </div>

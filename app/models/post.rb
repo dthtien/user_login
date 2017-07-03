@@ -3,6 +3,8 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :images, as: :imageable, dependent: :destroy
 
+  paginates_per 5
+
   accepts_nested_attributes_for :images, reject_if: :all_blank, allow_destroy: true
 
   validates :content, presence:  true
