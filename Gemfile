@@ -72,3 +72,6 @@ gem "cocoon"
 
 # Paginate
 gem 'kaminari'
+
+# Third-party storage
+gem 'aws-sdk', '~> 2.3'
