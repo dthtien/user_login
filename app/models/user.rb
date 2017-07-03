@@ -3,6 +3,9 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_one :profile, dependent: :destroy
+
+  after_create :create_profile
 
   validates :last_name, :first_name, presence: true, length: {maximum: 50}
   validates :email, presence: true, 
