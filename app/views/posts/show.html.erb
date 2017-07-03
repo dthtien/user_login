@@ -2,8 +2,15 @@
   <div class="card">
     <%= render 'shared/user_create', record: @post %>
     <div class="card-content">
-        <%= render 'shared/owner_link', record: @post %>
-        <%= simple_format @post.content, class: 'post-content' %>
+      <%= render 'shared/owner_link', record: @post %>
+      <%= simple_format @post.content, class: 'post-content' %>
+      <% if @post.images.present? %>
+        <div class="images-upload">
+          <div class="row">
+              <%= render @post.images %>
+          </div>
+        </div>
+      <% end %>
     </div>
     <div class="card-action">
       <p class="chip"><%= pluralize @post.count_comments, 'comment' %></p>

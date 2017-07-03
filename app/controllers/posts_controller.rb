@@ -4,19 +4,14 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new
+    @comment.build_image
   end
 
   def new
     @post = Post.new
+    @post.images.build
   end
 
-  def edit
-    authorize @post
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
 
   def create
     @post = current_user.posts.build(post_params)
@@ -27,6 +22,14 @@ class PostsController < ApplicationController
       else
         format.html { render :new }
       end
+    end
+  end
+
+  def edit
+    authorize @post
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
@@ -57,6 +60,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:content, :user_id)
+      params.require(:post).permit(:content, :user_id, images_attributes: [:image_upload])
     end
 end

@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  # skip_before_filter :verify_authenticity_token
+  # protect_from_forgery prepend: true, with: :exception
   before_action :authenticate_user!
   before_action :set_post, only: :create
   before_action :set_comment, only: [:edit, :update, :destroy]
@@ -37,8 +39,7 @@ class CommentsController < ApplicationController
     authorize @comment
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to root_path, notice: 'Comment was successfully destroyed.' }
     end
   end
 
@@ -52,6 +53,6 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-      params.require(:comment).permit(:content, :user_id, :article_id)
+      params.require(:comment).permit(:content, :user_id, :article_id, image_attributes: [:image_upload])
     end
 end

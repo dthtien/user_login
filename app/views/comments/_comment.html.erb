@@ -4,6 +4,9 @@
     <div class="card-content">
       <%= render 'shared/owner_link', record: comment %>
       <%= simple_format comment.content, class: 'comment-content' %>
+      <% unless comment.image.nil? %>
+        <%= render comment.image %>
+      <% end %>
     </div>
   </div>
 </div>

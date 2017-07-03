@@ -59,3 +59,9 @@ gem 'simple_form'
 gem 'materialize-sass'
 gem 'materialize-form'
 gem "pundit"
+
+# file attach
+gem "paperclip", "~> 5.0.0"
+
+# Nested form
+gem "cocoon"
