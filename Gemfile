@@ -54,10 +54,14 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-# Gem include
+# Make form is easier
 gem 'simple_form'
+
+#Material design
 gem 'materialize-sass'
 gem 'materialize-form'
+
+# Authorize
 gem "pundit"
 
 # file attach
@@ -65,3 +69,6 @@ gem "paperclip", "~> 5.0.0"
 
 # Nested form
 gem "cocoon"
+
+# Paginate
+gem 'kaminari'
