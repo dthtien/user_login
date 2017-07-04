@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   
   def home
-    @posts = Post.includes(:comments).includes(:user).page(params[:page])
+    @posts = Post.includes(:user).page(params[:page])
     @post = Post.new
     @post.images.build
 

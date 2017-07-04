@@ -13,7 +13,7 @@
       <% end %>
     </div>
     <div class="card-action">
-      <p class="chip"><%= pluralize @post.count_comments, 'comment' %></p>
+      <p class="chip"><%= pluralize @post.comments_count, 'comment' %></p>
     </div>
     <hr>
     <div id="comment-form">

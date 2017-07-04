@@ -11,14 +11,6 @@ class Post < ApplicationRecord
 
   default_scope -> {order(created_at: :desc)}
 
-  def count_comments
-    comments.count
-  end
-
-  def count_images
-    images.count
-  end
-
   private
     def have_content_or_image
       if self.content.blank? && self.images.blank?
