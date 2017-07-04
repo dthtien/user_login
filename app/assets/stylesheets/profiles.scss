@@ -1,0 +1,24 @@
+#profile{
+  .about{
+    @extend .card;
+    // min-width: 300px;
+    padding: 10px;
+    position: fixed;
+    .avatar{
+      @extend .center;
+      .avatar-img{
+        height: 80px;
+        width: 80px;
+      }
+    }
+    .bold{
+      padding: 7px;
+      font-size: 15px;
+    }
+
+    .user-name{
+      @extend .center;
+      font-size: 18px;
+    }
+  }
+}

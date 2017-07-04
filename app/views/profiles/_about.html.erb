@@ -1,0 +1,30 @@
+<div class="about">
+  <ul class="profile-nav fixed">
+    <li class="avatar">
+      <%= image_tag @profile.image_url, class: "circle responsive-img avatar-img" %>
+    </li>
+    <li class="user-name">
+      <b><%= @profile.full_name %></b>
+    </li>
+    <li class="divider"></li>
+    <li class="bold">
+      <i class="material-icons left">access_time</i>
+      <b>Day of birth </b> <%= @profile.birthday.nil? ? "Undefine" : l(@profile.birthday, format: "%d %B, %Y" ) %>
+    </li>
+    <li class="bold">
+      <i class="material-icons left">public</i>
+      <b>Address </b> <%= @profile.address.nil? ? "Undefine" : @profile.address %>
+    </li>
+    <li class="bold">
+      <i class="material-icons left">email</i>
+      <b>Email </b> <%= @profile.email %>
+    </li>
+    <% if logged_in? && policy(@profile).edit? %>
+      <li class="bold">
+        <%= link_to [:edit, @profile], class: "tooltipped", data: {delay: 10, tooltip: "Edit profile"} do %>
+          <i class="material-icons">edit</i>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

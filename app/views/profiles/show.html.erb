@@ -1,0 +1,15 @@
+<div id="profile">
+  <div class="row">
+    <div class="col s12 m4">
+      <%= render 'about' %>
+    </div>
+    <div class="col s12 m8">
+      <div id="list-post">
+        <%= render @posts %> 
+      </div>
+      <div class="paginator">
+        <%= paginate @posts, remote: true %>
+      </div>
+    </div>
+  </div>
+</div>

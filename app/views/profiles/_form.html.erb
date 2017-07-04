@@ -1,0 +1,8 @@
+<div class="profile-form">
+  <%= simple_form_for @profile do |f| %>
+    <%= f.input :address %>
+    <%= f.input :birthday %>
+
+    <%= f.submit class: "btn" %>
+  <% end %>
+</div>

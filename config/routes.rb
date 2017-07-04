@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :posts, shallow: true do 
     resources :comments, except: [:index, :show, :new]
   end
+
+  resources :profiles, only: [:show, :edit, :update]
 end

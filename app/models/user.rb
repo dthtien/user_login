@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :email, presence: true, 
     format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i},
     uniqueness: true
-  validates :password, presence: true, length: {maximum: 6}
+  validates :password, presence: true, length: {minimum: 6}
 
   before_save :downcase_email
 
@@ -27,9 +27,14 @@ class User < ApplicationRecord
     record.user == self
   end
 
+  def edit_profile?
+    profile.updated_at == profile.created_at
+  end
+
   def image_url
     "https://yt3.ggpht.com/-E2JOWZf82_c/AAAAAAAAAAI/AAAAAAAAAAA/5TIL33FTKF0/s900-c-k-no-mo-rj-c0xffffff/photo.jpg"
   end
+
   private 
     def downcase_email
       self.email = email.downcase 

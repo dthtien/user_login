@@ -4,13 +4,21 @@ p.post-content{
 
 .user-create{
   padding-top: 10px;
-  margin-bottom: -20px;
+  margin-bottom: 15px;
   .show-image-user{
-    @extend .center;
+    margin-left: 5px;
     padding-right: 0px !important;
     img.user-img{
+      cursor: pointer;
       height: 50px;
       width: 50px;
+    }
+  }
+  .user-name{
+    font-size: 15px;
+    font-weight: bold;
+    a{
+      margin-left: 7px;
     }
   }
 }
