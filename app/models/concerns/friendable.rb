@@ -55,9 +55,13 @@ module Concerns
     def pending_friend_with?(friend)
       pending_friends.include? friend
     end
-
+ 
     def requested_friend_with?(friend)
       requested_friends.include? friend
+    end
+
+    def in_friendship_with?(friend)
+      Friendship.exist?(self, friend)
     end
 
     private
