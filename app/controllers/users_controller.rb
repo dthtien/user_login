@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     current_user.accept_request @friend
     respond_to do |format|
       format.html{
-        redirect_to root, notice: "You and #{@friend.full_name} are in friendship"
+        redirect_to root_path, notice: "You and #{@friend.full_name} are in friendship"
       }
       format.js
     end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     current_user.decline_request @friend
     respond_to do |format|
       format.html{
-        redirect_to root, notice: "You and #{@friend.full_name} are in friendship"
+        redirect_to root_path, notice: "You and #{@friend.full_name} are not in friendship"
       }
       format.js
     end
@@ -61,6 +61,6 @@ class UsersController < ApplicationController
     end
 
     def set_friend
-      @friend = User.find(params[:friend_id])
+      @friend = User.find(params[:id])
     end
 end

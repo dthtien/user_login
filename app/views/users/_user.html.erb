@@ -5,6 +5,6 @@
   <%= link_to user.full_name, user.profile, class: "title"%>
   <p><%= user.profile.address %></p>
   <div class="link-friend-optimate">
-    
+    <%= render 'shared/friend_action_link', user: user %>
   </div>
 </li>

@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       log_in(user)
       flash[:notice] = "Heloo #{user.full_name}"
-      redirect_to user.edit_profile? ? root_path : edit_profile_path(user.profile)
+      redirect_to user.edit_profile? ? edit_profile_path(user.profile) : root_path
     else
       flash.now[:alert] = "Please check your email and password"
       render :new
