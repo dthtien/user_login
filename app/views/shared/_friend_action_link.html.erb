@@ -1,0 +1,29 @@
+<% if logged_in? %>
+  <% if current_user.pending_friend_with? user %>
+    <%= link_to [:decline_request, user], class: "btn right grey tooltipped", data: {tooltip: "Remove request"}, method: :delete do %>
+      <i class="material-icons">person_add</i>
+    <% end %>
+  <% end %>
+
+  <% if current_user.requested_friend_with? user%>
+    <%= link_to [:decline_request, user], class: "btn red tooltipped right", data: {tooltip: "Decline request"}, method: :delete do %>
+      <i class="material-icons">clear</i>
+
+    <% end %>
+    <%= link_to [:accept_request, user], class: "btn blue tooltipped right", data: {tooltip: "Accept request"}, method: :post do %>
+      <i class="material-icons">person_add</i>
+    <% end %>
+  <% end %>
+
+  <% if current_user.friend_with? user %>
+    <%= link_to "Unfriend", [:decline_request, user], class: "btn right red tooltipped", data: {tooltip: "Unfriend"}, method: :delete do %>
+      <i class="material-icons">person_add</i>
+    <% end %>
+  <% end %>
+  
+  <% if current_user != user && !current_user.in_friendship_with?(user) %>
+    <%= link_to [:friend_request, user], class: "btn right blue tooltipped", data: {tooltip: "Add friend"}, method: :post do %>
+      <i class="material-icons">add</i>
+    <% end %>
+  <% end %>
+<% end %>

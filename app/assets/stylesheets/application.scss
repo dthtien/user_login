@@ -6,6 +6,7 @@
 @import "posts";
 @import "comments";
 @import "profiles";
+@import 'users';
 
 main{
   @extend .container;
@@ -29,4 +30,10 @@ main{
     margin-top: -32px;
     margin-left: -32px;
   }
+}
+
+.link-friend-optimate{
+ a{
+  margin: 4px;
+ } 
 }
