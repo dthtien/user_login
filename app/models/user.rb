@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Concerns::Friendable
+  
   has_secure_password
 
   has_many :posts, dependent: :destroy

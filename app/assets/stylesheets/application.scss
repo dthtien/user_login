@@ -6,6 +6,7 @@
 @import "posts";
 @import "comments";
 @import "profiles";
+@import 'users';
 
 main{
   @extend .container;

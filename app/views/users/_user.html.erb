@@ -1,0 +1,10 @@
+<li class="collection-item avatar">
+  <%= link_to user.profile do %>
+    <%= image_tag user.image_url, class: "circle" %>
+  <% end %> 
+  <%= link_to user.full_name, user.profile, class: "title"%>
+  <p><%= user.profile.address %></p>
+  <div class="link-friend-optimate">
+    
+  </div>
+</li>
