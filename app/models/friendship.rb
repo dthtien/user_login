@@ -49,7 +49,7 @@ class Friendship < ApplicationRecord
     self.save
   end
 
-  def block
+  def block!
     self.status = 3
     self.save
   end

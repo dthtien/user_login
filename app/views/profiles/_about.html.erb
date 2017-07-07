@@ -22,7 +22,7 @@
     <% if logged_in? && policy(@profile).edit? %>
       <li class="bold">
         <%= link_to [:edit, @profile], class: "tooltipped", data: {delay: 10, tooltip: "Edit profile"} do %>
-          <i class="material-icons">edit</i>
+          <i class="material-icons">settings</i>
         <% end %>
       </li>
     <% end %>

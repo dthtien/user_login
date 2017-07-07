@@ -46,6 +46,25 @@ module Concerns
       Friendship.find_unblocked_friendship(friend, self).destroy
     end
 
+    def block_friend(friend)
+      return if self.blocked_friend_with? friend
+      if self.in_friendship_with?(friend)
+        Friendship.find_unblocked_friendship(self, friend).block!
+
+        Friendship.find_unblocked_friendship(friend, self).block!
+      else
+        Friendship.create_relation(self, friendship, status: 3)
+        Friendship.create_relation(friend, self, status: 3)
+      end
+    end
+
+    def unblock_friend(friend)
+      return unless self.blocked_friend_with? friend
+      Friendship.find_blocked_friendship(self, friend).destroy
+
+      Friendship.find_blocked_friendship(friend, self).destroy
+    end
+
     alias_method :remove_friend, :decline_request
 
     def friend_with?(friend)
@@ -58,6 +77,10 @@ module Concerns
  
     def requested_friend_with?(friend)
       requested_friends.include? friend
+    end
+
+    def blocked_friend_with?(friend)
+      blocked_friends.include? friend
     end
 
     def in_friendship_with?(friend)

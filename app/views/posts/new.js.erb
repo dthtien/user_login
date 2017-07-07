@@ -1,8 +1,9 @@
 postModal = $('#post-modal');
-if ( postModal.length > 1 ) {
+if ( postModal.length > 0 ) {
+  console.log('new');
   postModal.remove();
 }
-$('body').append("<%= j render('modal_form') %>");
+$('body').append("<%= j render('modal_form', post: @post) %>");
 postModal = $('#post-modal')
 postModal.modal()
 postModal.modal('open')

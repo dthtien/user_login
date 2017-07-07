@@ -16,8 +16,8 @@
   <% end %>
 
   <% if current_user.friend_with? user %>
-    <%= link_to "Unfriend", [:decline_request, user], class: "btn right red tooltipped", data: {tooltip: "Unfriend"}, method: :delete do %>
-      <i class="material-icons">person_add</i>
+    <%= link_to [:decline_request, user], class: "btn right red tooltipped", data: {tooltip: "Unfriend"}, method: :delete do %>
+      <i class="material-icons">clear</i>
     <% end %>
   <% end %>
   
